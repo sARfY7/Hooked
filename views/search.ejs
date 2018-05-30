@@ -1,0 +1,60 @@
+<% include ./partials/header %>
+
+    <div class="fluid-container">
+        <div id="discover-carousel">
+            <div id="prev-btn">
+                    <i class="fa fa-angle-left fa-5x" aria-hidden="true"></i>
+            </div>
+            <div class="owl-carousel">
+                    <% data["results"].forEach( function(info){ %>
+                        <div class="item">
+                            <img class="discover-poster" src="<%= posters.images.base_url %><%= posters.images.poster_sizes[3] %><%= info['poster_path'] %>">
+                            <!-- <div class="movie-rating">
+                                <p><%= info["vote_average"] %></p>
+                            </div> -->
+                        </div>
+                    <% }) %>
+            </div>
+            <div id="next-btn">
+                    <i class="fa fa-angle-right fa-5x" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div id="form-container" class="text-center">
+            <h1 class="display-3 mt-4">Search</h1>
+            <form action="/result" method="GET">
+                <div class="form-group">
+                    <input class="form-control" type="text" placeholder="Enter Movie Title" name="search_box">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--<div class="container-fluid">-->
+    <!--    <h1 class="text-center">Discover</h1>-->
+    <!--    <div class="row">-->
+    <!--        <% data["results"].forEach( function(info){ %>-->
+    <!--            <div class="col-md-6 col-6 new-margin">-->
+    <!--                <div class="discover-outer-box">-->
+    <!--                    <div class="discover-poster-container">-->
+    <!--                        <img class="discover-poster" src="<%= posters.images.base_url %><%= posters.images.poster_sizes[3] %><%= info["poster_path"] %>">-->
+    <!--                    </div>-->
+    <!--                    <div class="discover-movie-title">-->
+    <!--                        <p><%= info["title"] %></p>-->
+    <!--                    </div>-->
+    <!--                    <div class="discover-movie-plot">-->
+    <!--                        <p> <%= info["overview"] %> </p>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        <% }) %>-->
+    <!--    </div>-->
+    <!--</div>-->
+
+    <% include ./partials/footer %>

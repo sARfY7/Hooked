@@ -1,0 +1,315 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,900');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+.custom-btn {
+    position: relative;
+    display: inline-block;
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 1px;
+    transition: 0.3s;
+}
+
+.custom-btn:hover {
+    background: #fff;
+    color: black;
+}
+
+.mt100 {
+    margin-top: 100px;
+}
+
+/* ****************************************************** */
+/* Navigation */
+/* ****************************************************** */
+
+.nav-wrapper {
+    z-index: 10000;
+    position: absolute;
+    left: 50%;
+    padding-left: 380px;
+    padding-right: 380px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-items: center;
+    justify-content: center;
+    text-align: center;
+    transform: translateX(-50%);
+}
+
+.nav-item {
+    font-size: 16px;
+    color: #fff;
+    /* background: #eee; */
+    width: 150px;
+    height: 40px;
+    transition: 0.1s;
+}
+
+.nav-item:nth-of-type(3) {
+    font-size: 18px;
+}
+
+.nav-item:hover {
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.nav-item p {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* ****************************************************** */
+/* Discover Hero */
+/* ****************************************************** */
+
+
+
+.movie-year {
+    color: #fff;
+    font-size: 1.4em;
+    margin-left: 20px;
+}
+
+.movie-genre {
+    color: #ddd;
+    display: flex;
+    margin-bottom: 10px;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+}
+
+.genre {
+    margin: 10px 10px;
+}
+
+.genre:nth-of-type(1) {
+    margin-left: 0;
+}
+
+
+/* ****************************************************** */
+/* MOIVE PAGE CSS */
+/* ****************************************************** */
+
+.movie-bg {
+    position: relative;
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow: hidden;
+    background: #000;
+}
+
+.movie-bg .bg {
+    max-width: 100%;
+    max-height: 100%;
+    opacity: 0.6;
+}
+
+.movie-info {
+    color: #fff;
+    position: relative;
+    margin-top: -15%;
+    display: grid;
+    grid-template-columns: 0.4fr 2fr;
+    padding: 0 100px;
+}
+
+.movie-poster .poster {
+    max-width: 100%;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.movie-details {
+    padding: 0 20px;
+}
+
+.name-year {
+    display: flex;
+}
+
+.movie-name {
+    font-weight: 900;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.name-year .movie-year {
+    font-size: 1.2em;
+}
+
+.time {
+    display: flex;
+}
+
+.movie-time {
+    padding-left: 8px;
+}
+
+.directors {
+    padding: 5px;
+    display: flex;
+}
+
+.director {
+    margin-left: 10px;
+}
+
+/* ****************************************************** */
+/* Extra Movie Info */
+/* ****************************************************** */
+
+.extra-movie-info {
+    display: grid;
+    grid-template-columns: 1fr repeat(2, 2fr);
+    padding: 0 100px;
+}
+
+.overview, .cast {
+    margin-top: -15%;
+    padding: 0 20px;
+}
+
+.overview h2, .cast h2 {
+    margin: 20px 0;
+    border-left: 4px solid rgb(63, 187, 32);
+    padding-left: 10px;
+}
+
+.cast {
+    max-height: 400px;
+}
+
+.people::-webkit-scrollbar {
+    width: 0.1em;
+}
+ 
+.people::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+  border-radius: 10px;
+}
+
+.people {
+    max-height: inherit;
+    overflow-y: scroll;
+}
+
+.person {
+    margin-top: 10px;
+    font-size: 1.1em;
+    display: grid;
+    grid-template-columns: 0.4fr repeat(2, 1fr);
+    align-items: center;
+}
+
+.avatar {
+    max-width: 50px;
+}
+
+.rating {
+    margin-top: 40px;
+    max-width: 82%;
+    max-height: 200px;
+    border: 1px solid #000000;
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    align-items: center;
+    justify-items: center;
+}
+
+.rating h2 {
+    font-weight: 400;
+}
+
+.rating p {
+    font-size: 5em;
+    font-weight: 700;
+}
+
+/* ****************************************************** */
+/* Carousel Template */
+/* ****************************************************** */
+
+.carousel-template {
+    position: relative;
+    padding: 20px 100px;
+    max-width: 100%;
+}
+
+.carousel-template h2 {
+    border-left: 4px solid rgb(63, 187, 32);
+    padding-left: 10px;
+}
+
+.movie-card {
+    max-width: 200px;
+    display: grid;
+}
+
+.movie-card img {
+    max-width: 100%;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.movie-card p {
+    margin-top: 10px;
+    justify-self: center;
+}
+
+.carousel-movies-container {
+    margin-top: 20px;
+}
+
+#prev, #next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0 20px;
+    width: 5%;
+    height: 20%;
+    z-index: 100;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    font-size: 4em;
+}
+
+#prev:hover, #next:hover {
+    cursor: pointer;
+}
+
+#prev {
+    left: 0;
+}
+
+#next {
+    right: 0;
+}
+
+/* *********************************************************** */

@@ -1,0 +1,127 @@
+<% include ./partials/header %>
+    <!-- ======================================= -->
+    <!-- Navigation -->
+    <!-- ======================================= -->
+    <nav>
+        <div class="nav-wrapper">
+            <a href="/">
+                <div class="nav-item">
+                    <p>home</p>
+                </div>
+            </a>
+            <div class="nav-item">
+                <p>discover</p>
+            </div>
+            <div class="nav-item">
+                <p>hooked</p>
+            </div>
+            <div class="nav-item">
+                <p>latest</p>
+            </div>
+            <div class="nav-item">
+                <p>search</p>
+            </div>
+        </div>
+    </nav>
+
+    <div class="movie-bg">
+        <img src="<%= posters.images.base_url %><%= posters.images.backdrop_sizes[3] %><%= data['backdrop_path'] %>" alt="" class="bg">
+    </div>
+
+    <div class="movie-info">
+        <div class="movie-poster">
+            <img src="<%= posters.images.base_url %><%= posters.images.poster_sizes[6] %><%= data['poster_path'] %>" alt="" class="poster">
+        </div>
+        <div class="movie-details">
+            <div class="name-year">
+                <p class="movie-name">
+                    <%= data['title'] %>
+                </p>
+                <p class="movie-year">
+                    <%= data['release_date'].substr(0,4) %>
+                </p>
+            </div>
+            <div class="time">
+                <i class="far fa-clock"></i>
+                <p class="movie-time">
+                    <%= data['runtime'] %> Mins</p>
+            </div>
+            <div class="movie-genre">
+                <% data["genres"].forEach( function(genre) { %>
+                    <p class="genre">
+                        <%= genre["name"] %>
+                    </p>
+                    <% }) %>
+            </div>
+            <div class="directors">
+                <h5>Director :</h5>
+                <% data["credits"]["crew"].forEach( function(crew_members) { %>
+                    <% if (crew_members["job"] == "Director") { %>
+                        <p class="director">
+                            <%= crew_members["name"] %>
+                        </p>
+                        <% } %>
+                            <% }) %>
+            </div>
+        </div>
+    </div>
+
+    <div class="extra-movie-info">
+        <div class="rating">
+            <h2>Rating</h2>
+            <p>
+                <%= data["vote_average"] %>
+            </p>
+        </div>
+        <div class="overview">
+            <h2>Overview</h2>
+            <p class="plot">
+                <%= data['overview'] %>
+            </p>
+        </div>
+        <div class="cast">
+            <h2>Cast</h2>
+            <div class="people">
+                <% data["credits"]["cast"].forEach( function(cast_member) { %>
+                    <div class="person">
+                        <img src="<%= posters.images.base_url %><%= posters.images.profile_sizes[1] %><%= cast_member['profile_path'] %>" alt=""
+                            class="avatar">
+                        <p class="person-name">
+                            <%= cast_member["name"] %>
+                        </p>
+                        <p class="as">
+                            <%= cast_member["character"] %>
+                        </p>
+                    </div>
+                    <% }) %>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======================================= -->
+    <!-- Related Movies -->
+    <!-- ======================================= -->
+
+    <div class="carousel-template mt100">
+        <div id="prev">
+            <i class="fas fa-chevron-left"></i>
+        </div>
+        <h2>Related Movies</h2>
+        <div class="owl-carousel carousel-movies-container">
+            <% data["similar"]["results"].forEach( function(related) { %>
+                <a href="/movie/<%= related['id'] %>">
+                    <div class="movie-card">
+                        <img src="<%= posters.images.base_url %><%= posters.images.poster_sizes[6] %><%= related['poster_path'] %>" alt="">
+                        <p>
+                            <%= related["title"] %>
+                        </p>
+                    </div>
+                </a>
+                <% }) %>
+        </div>
+        <div id="next">
+            <i class="fas fa-chevron-right"></i>
+        </div>
+    </div>
+
+    <% include ./partials/footer %>

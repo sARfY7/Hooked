@@ -1,0 +1,79 @@
+<% include ./partials/header %>
+    <!-- ======================================= -->
+    <!-- Navigation -->
+    <!-- ======================================= -->
+    <nav>
+        <div class="nav-wrapper">
+            <div class="nav-item">
+                <p>home</p>
+            </div>
+            <div class="nav-item">
+                <p>discover</p>
+            </div>
+            <div class="nav-item">
+                <p>hooked</p>
+            </div>
+            <div class="nav-item">
+                <p>latest</p>
+            </div>
+            <div class="nav-item">
+                <p>search</p>
+            </div>
+        </div>
+    </nav>
+    <!-- ======================================= -->
+    <!-- Discover Hero -->
+    <!-- ======================================= -->
+
+    <div class="slider">
+        <div class="slider-wrapper flex">
+        <% upcoming["results"].forEach( function(upcoming_movie){ %>
+            <div class="slide flex">
+                <div class="slide-image">
+                    <a href="/movie/<%= upcoming_movie['id'] %>">
+                    <img src="<%= posters.images.base_url %><%= posters.images.poster_sizes[3] %><%= upcoming_movie['poster_path'] %>">
+                    <div class="overlay"></div>
+                    </a>
+                </div>
+                <div class="slide-content">
+                    <div class="slide-date"><%= upcoming_movie["release_date"] %></div>
+                    <div class="slide-title"><%= upcoming_movie["title"] %></div>
+                    <div class="slide-text"><%= upcoming_movie["overview"] %></div>
+                    <div class="slide-more">READ MORE</div>
+                </div>
+            </div>
+        <% }) %>
+        </div>
+        <div class="arrows">
+            <a href="#" title="Previous" class="arrow slider-link prev"></a>
+            <a href="#" title="Next" class="arrow slider-link next"></a>
+        </div>
+    </div>
+
+    <!-- ======================================= -->
+    <!-- Discover Movies -->
+    <!-- ======================================= -->
+
+    <div class="carousel-template">
+        <div id="prev">
+            <i class="fas fa-chevron-left"></i>
+        </div>
+        <h2>Discover Movies</h2>
+        <div class="owl-carousel carousel-movies-container">
+            <% data["results"].forEach( function(info){ %>
+                <a href="/movie/<%= info['id'] %>">
+                    <div class="movie-card">
+                        <img src="<%= posters.images.base_url %><%= posters.images.poster_sizes[3] %><%= info['poster_path'] %>" alt="">
+                        <p>
+                            <%= info["title"] %>
+                        </p>
+                    </div>
+                </a>
+                <% }) %>
+        </div>
+        <div id="next">
+            <i class="fas fa-chevron-right"></i>
+        </div>
+    </div>
+
+    <% include ./partials/footer %>

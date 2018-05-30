@@ -1,0 +1,25 @@
+<% include ./partials/header %>
+
+<div class="container">
+    <h1 class="text-center">Results</h1>
+    <div class="row">
+        <% data["results"].forEach( function(info){ %>
+            <div class="col-md-6 col-6 new-margin">
+                <div class="outer-box">
+                    <div class="poster-container">
+                        <img class="poster" src="<%= posters.images.base_url %><%= posters.images.poster_sizes[3] %><%= info["poster_path"] %>">
+                    </div>
+                    <div class="movie-title">
+                        <h6> <%= info["title"] %> </h6>
+                    </div>
+                    <div class="movie-plot">
+                        <p> <%= info["overview"].substring(0,280) %> </p>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+    <button class="btn btn-primary"><a href="/">Search Again</a></button>
+</div>
+
+<% include ./partials/footer %>
